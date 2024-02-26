@@ -4,6 +4,7 @@ import com.example.qna.entity.Answer;
 import com.example.qna.entity.Question;
 import com.example.qna.repository.AnswerRepository;
 import com.example.qna.repository.QuestionRepository;
+import com.example.qna.service.QuestionService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -50,4 +51,18 @@ class SbbApplicationTests {
         a.setCreateDate(LocalDateTime.now());
         this.answerRepository.save(a);
     }
+
+    @Autowired
+    private QuestionService questionService;
+
+    @Test
+    void testJpa3() {
+        for (int i = 1; i <= 300; i++) {
+            String subject = String.format("테스트 데이터입니다:[%03d]", i);
+            String content = "내용무";
+            questionService.create(subject, content);
+        }
+    }
+
+
 }

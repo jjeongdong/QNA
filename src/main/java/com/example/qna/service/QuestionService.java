@@ -4,6 +4,9 @@ import com.example.qna.Exception.DataNotFoundException;
 import com.example.qna.entity.Question;
 import com.example.qna.repository.QuestionRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -38,5 +41,12 @@ public class QuestionService {
         question.setContent(content);
         question.setCreateDate(LocalDateTime.now());
         questionRepository.save(question);
+    }
+
+    public Page<Question> getList(int page) {
+//        List<Sort.Order> sorts = new ArrayList<>();
+//        sorts.add(Sort.Order.desc("createDate"));
+        Pageable pageable = PageRequest.of(page, 10);
+        return this.questionRepository.findAllByOrderByCreateDateDesc(pageable);
     }
 }

@@ -45,4 +45,22 @@ public class QuestionService {
         question.setAuthor(siteUser);
         questionRepository.save(question);
     }
+
+    @Transactional
+    public void modify(Long id, String subject, String content) {
+        Optional<Question> optionalQuestion = questionRepository.findById(id);
+        if (optionalQuestion.isPresent()) {
+            Question question = optionalQuestion.get();
+
+            question.setSubject(subject);
+            question.setContent(content);
+            question.setModifyDate(LocalDateTime.now());
+        } else {
+            throw new DataNotFoundException("answer not found");
+        }
+    }
+
+    public void delete(Question question) {
+        questionRepository.delete(question);
+    }
 }

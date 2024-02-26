@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -31,5 +32,6 @@ public class Question {
 
     private LocalDateTime modifyDate;
 
-
+    @ManyToMany(fetch = FetchType.EAGER)
+    Set<SiteUser> voter;
 }

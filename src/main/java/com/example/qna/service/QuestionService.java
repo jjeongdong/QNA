@@ -60,7 +60,14 @@ public class QuestionService {
         }
     }
 
+    @Transactional
     public void delete(Question question) {
         questionRepository.delete(question);
+    }
+
+    @Transactional
+    public void vote(Question question, SiteUser siteUser) {
+        question.getVoter().add(siteUser);
+        questionRepository.save(question);
     }
 }

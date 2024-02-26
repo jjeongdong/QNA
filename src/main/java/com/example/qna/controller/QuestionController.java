@@ -21,7 +21,7 @@ public class QuestionController {
 
     @GetMapping("/list")
     public String list(Model model, @RequestParam(value="page", defaultValue="0") int page) {
-        Page<Question> paging = this.questionService.getList(page);
+        Page<Question> paging = questionService.getList(page);
         model.addAttribute("paging", paging);
         return "question_list";
     }
@@ -43,7 +43,7 @@ public class QuestionController {
         if (bindingResult.hasErrors()) {
             return "question_form";
         }
-        this.questionService.create(questionForm.getSubject(), questionForm.getContent());
+        questionService.create(questionForm.getSubject(), questionForm.getContent());
         return "redirect:/question/list";
     }
 }

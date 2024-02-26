@@ -33,7 +33,7 @@ class SbbApplicationTests {
 
     @Test
     void testJpaDelete() {
-        Optional<Question> id = questionRepository.findById(2);
+        Optional<Question> id = questionRepository.findById(2L);
         Question question = id.get();
         questionRepository.delete(question);
     }

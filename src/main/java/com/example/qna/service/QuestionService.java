@@ -5,6 +5,7 @@ import com.example.qna.entity.Question;
 import com.example.qna.repository.QuestionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,6 +20,7 @@ public class QuestionService {
         return questionRepository.findAll();
     }
 
+    @Transactional
     public Question getQuestion(Long id) {
         Optional<Question> question = questionRepository.findById(id);
         if (question.isPresent()) {

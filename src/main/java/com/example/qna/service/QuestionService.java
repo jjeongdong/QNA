@@ -21,9 +21,9 @@ public class QuestionService {
     private final QuestionRepository questionRepository;
 
     @Transactional(readOnly = true)
-    public Page<Question> getList(int page) {
+    public Page<Question> getList(int page, String kw) {
         Pageable pageable = PageRequest.of(page, 10);
-        return questionRepository.findAllByOrderByCreateDateDesc(pageable);
+        return questionRepository.findAllByKeywordOrderByCreateDateDesc(kw, pageable);
     }
 
     @Transactional(readOnly = true)

@@ -1,6 +1,4 @@
-FROM amazoncorretto:17-alpine-jdk
+FROM openjdk:17-jdk-slim
 ARG JAR_FILE=build/libs/*.jar
-ARG PROFILES
-ARG ENV
 COPY ${JAR_FILE} /app.jar
-ENTRYPOINT ["java", "-Dspring.profiles.active=${PROFILES}", "-Dserver.env=${ENV}", "-jar", "/app.jar"]
+ENTRYPOINT ["java", "-Dspring.profiles.active=prod", "-jar", "/app.jar"]

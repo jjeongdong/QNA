@@ -32,6 +32,7 @@ public class SecurityConfig {
                         .invalidateHttpSession(true));
         http
                 .authorizeHttpRequests((authorizeHttpRequests) -> authorizeHttpRequests
+                        .requestMatchers("/hc", "/env").permitAll()
                         .requestMatchers(("/**")).permitAll()
                         .anyRequest().authenticated());
 

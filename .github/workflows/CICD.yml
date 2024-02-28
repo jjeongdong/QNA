@@ -67,4 +67,5 @@ jobs:
             docker rm -f $(docker ps -qa)
             docker rmi ${{ secrets.DOCKER_USERNAME }}/qna
             docker pull ${{ secrets.DOCKER_USERNAME }}/qna
+            cd QNA
             docker-compose up --build -d

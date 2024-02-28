@@ -63,14 +63,6 @@ jobs:
           mysql password: '924498'
           
       ### CD
-      #배포를 위한 prod properties 설정
-      - name: Make application-prod.yml
-        run: |
-          cd ./src/main/resources
-          touch ./application-prod.yml
-          echo "${{ secrets.YML_PROD }}" > ./application-prod.yml
-        shell: bash
-
       #test를 제외한 프로젝트 빌드
       - name: Build With Gradle
         run: ./gradlew build -x test

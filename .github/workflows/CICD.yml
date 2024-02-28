@@ -91,6 +91,7 @@ jobs:
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           envs: GITHUB_SHA
           script: |
+             sudo chmod 666 /var/run/docker.sock
              docker stop qna
              docker rm qna
              sudo docker pull ${{ secrets.DOCKER_REPO }}/qna

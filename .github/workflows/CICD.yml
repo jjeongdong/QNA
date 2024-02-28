@@ -64,6 +64,7 @@ jobs:
           username: ubuntu
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           script: |
+            sudo su -
             docker rm -f $(docker ps -qa)
             docker rmi ${{ secrets.DOCKER_USERNAME }}/qna
             docker pull ${{ secrets.DOCKER_USERNAME }}/qna

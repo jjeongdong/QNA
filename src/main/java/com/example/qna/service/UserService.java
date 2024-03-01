@@ -1,6 +1,6 @@
 package com.example.qna.service;
 
-import com.example.qna.Exception.DataNotFoundException;
+import com.example.qna.exception.DataNotFoundException;
 import com.example.qna.entity.SiteUser;
 import com.example.qna.repository.UserRepository;
 import lombok.RequiredArgsConstructor;

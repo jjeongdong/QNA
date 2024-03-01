@@ -10,7 +10,7 @@
 
 
 ## ERD
-![제목 없는 다이어그램 drawio](https://github.com/jjeongdong/QNA/assets/112836685/75cc252a-d19a-46f9-a86f-dd6e3b6ac3bf)
+![제목 없는 다이어그램 drawio (1)](https://github.com/jjeongdong/QNA/assets/112836685/b95e5089-0648-4962-9220-1c8ea80735c5)
 
 
 
